@@ -15,6 +15,7 @@ dependencies = [
     "torchvision>=0.17.1",
     "timm>=0.9.16",
     "dvclive>=3.44.0",
+    "pytest>=8.0.2",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

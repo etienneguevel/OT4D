@@ -194,6 +194,8 @@ idna==3.6
     # via jsonschema
     # via requests
     # via yarl
+iniconfig==2.0.0
+    # via pytest
 ipykernel==6.29.3
     # via jupyterlab
 ipython==8.22.1
@@ -353,6 +355,7 @@ packaging==23.2
     # via lightning-utilities
     # via matplotlib
     # via nbconvert
+    # via pytest
     # via pytorch-lightning
     # via torchmetrics
     # via transformers
@@ -373,6 +376,8 @@ pillow==10.2.0
 platformdirs==3.11.0
     # via dvc
     # via jupyter-core
+pluggy==1.4.0
+    # via pytest
 prometheus-client==0.20.0
     # via jupyter-server
 prompt-toolkit==3.0.43
@@ -414,6 +419,8 @@ pyparsing==3.1.1
     # via grandalf
     # via matplotlib
     # via pydot
+pytest==8.0.2
+    # via ot4d
 python-dateutil==2.8.2
     # via arrow
     # via celery
