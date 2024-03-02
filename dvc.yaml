@@ -1,0 +1,8 @@
+stages:
+  prepare_data:
+    cmd: python src/ot4d/main/prepare_data.py data_kaggle/bone_marrow_cell_dataset
+      sorted_data
+    deps:
+    - data_kaggle/bone_marrow_cell_dataset
+    outs:
+    - sorted_data
