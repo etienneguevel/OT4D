@@ -45,8 +45,8 @@ def initialize_model(model_name: str, **kwargs):
         model = Resnet18(**kwargs)
 
     elif model_name == "ViT":
-        model_name = "vit_base_patch16_224.orig_in21k"
-        model = ViT(model_name=model_name, **kwargs)
+        specific_model = "vit_base_patch16_224.orig_in21k"
+        model = ViT(model_name=specific_model, **kwargs)
 
     else:
         return ValueError("Sorry, the name of the model is unvalid")

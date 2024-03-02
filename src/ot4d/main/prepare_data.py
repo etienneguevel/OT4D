@@ -23,7 +23,26 @@ def find_files(path_dir: str):
     return files
 
 
-def move_data(folder_path, out_path, validation_split=0.2, test_split=0.1):
+def move_data(
+    folder_path: str,
+    out_path: str,
+    validation_split: float = 0.2,
+    test_split: float = 0.1,
+):
+    """
+    Function to copy and rearrange the files in folder_path in a format train / validation / test in a
+    directory out_path.
+    The percentage of files in each folder is determined by `validation_split` and `test_split`.
+    The pre-conceived idea between this function is that the data inside `folder_path` is arranged inside
+    folders named after the class of the pictures inside them.
+    These folders will be replicated inside each of the folders train / validation / test inside out_path.
+
+    args:
+    - folder_path: path of the folder containing the original data
+    - out_path: path where the new sorted dataset will be copied
+    - validation_split: percentage of the data to move in the validation folder
+    - test_split: percentage of the date to move in the test folder
+    """
     print("Starting")
     val_test_ratio = test_split / (validation_split + test_split)
     states = [fn for fn in os.listdir(folder_path)]
