@@ -194,6 +194,8 @@ idna==3.6
     # via jsonschema
     # via requests
     # via yarl
+imageio==2.34.0
+    # via scikit-image
 iniconfig==2.0.0
     # via pytest
 ipykernel==6.29.3
@@ -258,6 +260,8 @@ kiwisolver==1.4.5
 kombu==5.3.5
     # via celery
     # via dvc-task
+lazy-loader==0.3
+    # via scikit-image
 lightning==2.2.0.post0
     # via ot4d
 lightning-utilities==0.10.1
@@ -295,17 +299,21 @@ nest-asyncio==1.6.0
     # via ipykernel
 networkx==3.2.1
     # via dvc
+    # via scikit-image
     # via torch
 notebook-shim==0.2.4
     # via jupyterlab
 numpy==1.26.4
     # via contourpy
+    # via imageio
     # via lightning
     # via matplotlib
     # via pandas
     # via pytorch-lightning
+    # via scikit-image
     # via scikit-learn
     # via scipy
+    # via tifffile
     # via torchmetrics
     # via torchvision
     # via transformers
@@ -357,6 +365,7 @@ packaging==23.2
     # via nbconvert
     # via pytest
     # via pytorch-lightning
+    # via scikit-image
     # via torchmetrics
     # via transformers
 pandas==2.2.1
@@ -371,7 +380,9 @@ pathspec==0.12.1
 pexpect==4.9.0
     # via ipython
 pillow==10.2.0
+    # via imageio
     # via matplotlib
+    # via scikit-image
     # via torchvision
 platformdirs==3.11.0
     # via dvc
@@ -479,9 +490,13 @@ ruamel-yaml-clib==0.2.8
 safetensors==0.4.2
     # via timm
     # via transformers
+scikit-image==0.22.0
+    # via ot4d
 scikit-learn==1.4.1.post1
     # via ot4d
 scipy==1.12.0
+    # via ot4d
+    # via scikit-image
     # via scikit-learn
 scmrepo==3.1.0
     # via dvc
@@ -529,6 +544,8 @@ terminado==0.18.0
     # via jupyter-server-terminals
 threadpoolctl==3.3.0
     # via scikit-learn
+tifffile==2024.2.12
+    # via scikit-image
 timm==0.9.16
     # via ot4d
 tinycss2==1.2.1
