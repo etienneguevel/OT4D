@@ -1,11 +1,17 @@
 import yaml
-from models import Resnet18, ViT
+from .models import Resnet18, ViT
 
 
-def load_model(model_name, ckpt_name, num_classes):
+def load_model(model_name: str, ckpt_name: str, num_classes: int):
     """
-    function loading one of the implemented models
-    -
+    Model loader from a checkpoint file
+    params:
+    - model_name: name of the model class to load, from `resnet18` and `ViT`
+    - ckpt_name: path of the checkpoint to load the model from
+    - num_classes: number of classes to classify from
+
+    outs:
+    - model class of the `model_name` specified with the weight from the `ckpt_name` path
     """
     if model_name == "resnet18":
         model = Resnet18.load_from_checkpoint(
@@ -26,7 +32,15 @@ def load_model(model_name, ckpt_name, num_classes):
     return model
 
 
-def initialize_model(model_name, **kwargs):
+def initialize_model(model_name: str, **kwargs):
+    """
+    Function to initialize a model from model_classes specified
+    args:
+    - model_name: name of the model class to load, from `resnet18` and `ViT`
+
+    outs:
+    - model class of the `model_name` specified
+    """
     if model_name == "resnet18":
         model = Resnet18(**kwargs)
 
@@ -40,7 +54,14 @@ def initialize_model(model_name, **kwargs):
     return model
 
 
-def add_to_yaml(yaml_file, key, value):
+def add_to_yaml(yaml_file: str, key, value):
+    """
+    Function to add content to a yaml file
+    args:
+    - yaml_file: path to the yaml file to modify
+    - key: key to add
+    - value: value to add
+    """
     with open(yaml_file, "r") as f:
         data = yaml.safe_load(f)
         data[key] = value
