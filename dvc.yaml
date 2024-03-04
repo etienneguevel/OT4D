@@ -4,6 +4,7 @@ stages:
       sorted_data
     deps:
     - data_kaggle/bone_marrow_cell_dataset
+    - src/ot4d/main/prepare_data.py
     outs:
     - sorted_data
   train:
