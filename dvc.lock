@@ -1,0 +1,38 @@
+schema: '2.0'
+stages:
+  prepare_data:
+    cmd: python src/ot4d/main/prepare_data.py data_kaggle/bone_marrow_cell_dataset
+      sorted_data
+    deps:
+    - path: data_kaggle/bone_marrow_cell_dataset
+      hash: md5
+      md5: f32b225ad62a006ccf627bac957708af.dir
+      size: 6935479966
+      nfiles: 171374
+    outs:
+    - path: sorted_data
+      hash: md5
+      md5: f707ec44a503450eb5f109a85b3736d4.dir
+      size: 6935479966
+      nfiles: 171374
+  train:
+    cmd: python src/ot4d/main/train.py sorted_data
+    deps:
+    - path: sorted_data
+      hash: md5
+      md5: f707ec44a503450eb5f109a85b3736d4.dir
+      size: 6935479966
+      nfiles: 171374
+    - path: src/ot4d/main/train.py
+      hash: md5
+      md5: 8be6dc3dbfcb5e2637a4daab818e9694
+      size: 3690
+    params:
+      params.yaml:
+        global.model_name: resnet18
+        train.batch_size: 16
+        train.gamma: 0.1
+        train.learning_rate: 0.001
+        train.momentum: 0.9
+        train.num_epochs: 15
+        train.step_size: 10
