@@ -3,6 +3,7 @@ import shutil
 import sys
 from tqdm import tqdm
 from sklearn.model_selection import train_test_split
+from PIL import Image
 
 
 def find_files(path_dir: str):
@@ -68,7 +69,15 @@ def move_data(
                 os.mkdir(path_f)
 
             for in_path in f:
-                shutil.copyfile(in_path, os.path.join(path_f, imgs[in_path]))
+                try:
+                    im = Image.open(in_path)
+                    im = im.convert("RGB")
+                    shutil.copyfile(in_path, os.path.join(path_f, imgs[in_path]))
+
+                except OSError:
+                    print(
+                        f"Image at path {in_path} could not be opened and has not been copied."
+                    )
 
     print("Files have been moved")
 
