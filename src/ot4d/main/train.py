@@ -49,9 +49,9 @@ def main():
         f = yaml.safe_load(file)
         params = f["train"]
         model_name = f["global"]["model_name"]
+        path = f["global"]["savepath"]
 
     # Check the devices available
-
     device = "gpu" if torch.cuda.is_available() else "cpu"
 
     # Count the number of classes (ie number of files in any datasplit directory)
@@ -73,9 +73,7 @@ def main():
     )
 
     # Specify the savepath where the best model will be saved
-    savepath = os.path.join(
-        "/home/etienneguevel/Documents/SCAI/OT4D/OT4D/models", model_name
-    )
+    savepath = os.path.join(path, model_name)
     if not os.path.isdir(savepath):
         os.mkdir(savepath)
 
