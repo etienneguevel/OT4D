@@ -4,7 +4,7 @@ import sys
 import lightning as L
 import torch
 import yaml
-from .helpers import add_to_yaml, initialize_model
+from ot4d.main.helpers import add_to_yaml, initialize_model
 from lightning.pytorch.callbacks import EarlyStopping, ModelCheckpoint
 from torchvision import datasets
 
@@ -73,7 +73,9 @@ def main():
     )
 
     # Specify the savepath where the best model will be saved
-    savepath = os.path.join("/home/vitaman/github/raspberry_vision/models/", model_name)
+    savepath = os.path.join(
+        "/home/etienneguevel/Documents/SCAI/OT4D/OT4D/models", model_name
+    )
     if not os.path.isdir(savepath):
         os.mkdir(savepath)
 
