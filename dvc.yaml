@@ -6,3 +6,16 @@ stages:
     - data_kaggle/bone_marrow_cell_dataset
     outs:
     - sorted_data
+  train:
+    cmd: python src/ot4d/main/train.py sorted_data
+    deps:
+    - sorted_data
+    - src/ot4d/main/train.py
+    params:
+    - global.model_name
+    - train.batch_size
+    - train.gamma
+    - train.learning_rate
+    - train.momentum
+    - train.num_epochs
+    - train.step_size
